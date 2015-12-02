@@ -25,8 +25,8 @@ docker-compose --x-networking up -d
 
 ### Pre-built images
 
-https://hub.docker.com/r/kenjones/authstore-consul/
-https://hub.docker.com/r/kenjones/authstore-vault/
+- https://hub.docker.com/r/kenjones/authstore-consul/
+- https://hub.docker.com/r/kenjones/authstore-vault/
 
 Simple `docker-compose.yml` that uses the pre-built images.
 
