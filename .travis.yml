@@ -1,0 +1,13 @@
+sudo: required
+
+services:
+  - docker
+
+script:
+  - docker build -t base-alpine:3.2 -f Dockerfile.base .
+  - docker-compose build
+  - docker tag authstore_consul kenjones/authstore-consul
+  - docker tag authstore_vault kenjones/authstore-vault
+  - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
+  - docker push kenjones/authstore-consul
+  - docker push kenjones/authstore-vault
