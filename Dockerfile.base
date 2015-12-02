@@ -1,0 +1,6 @@
+FROM alpine:3.2
+
+ENV GOMAXPROCS 2
+
+COPY nsswitch.conf /etc/nsswitch.conf
+COPY repositories /etc/apk/repositories

@@ -1,0 +1,7 @@
+vault:
+  container_name: vault
+  build: .
+  cap_add:
+    - IPC_LOCK
+  ports:
+    - "8200"

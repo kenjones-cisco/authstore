@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if ! nc -z 127.0.0.1 8500 >/dev/null 2>&1
+then
+  echo "local consul not ready yet"
+  exit 1
+fi
+
+echo "consul ready, now start vault"
+vault server -config=/etc/vault.hcl

@@ -1,0 +1,10 @@
+consul:
+  container_name: consul
+  build: .
+  command: "agent -config-file=/etc/consul.json"
+  ports:
+    - "8301"
+    - "8302"
+    - "8400"
+    - "8500"
+    - "8600"
