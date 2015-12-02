@@ -23,16 +23,29 @@ To start the Consul server and the Vault server up:
 docker-compose --x-networking up -d
 ```
 
-To run all the test cases, there is a NodeJS 4 Dockerfile in the dev/ directory of the project along with a build.sh script. If you are using the vagrant image then it was built during the initial `vagrant up`. Otherwise you can simply run the build.sh script to create the image `vaulted/nodejs:4`.
+### Pre-built images
 
-From the project root you can start a NodeJS container with connectivity to the Consul and Vault servers as follows:
-```bash
-docker run -it --rm -v `pwd`:/app --net=authstore vaulted/nodejs:4 /bin/bash
-```
+https://hub.docker.com/r/kenjones/authstore-consul/
+https://hub.docker.com/r/kenjones/authstore-vault/
 
-Run the test cases:
-```bash
-npm test
-or
-npm run coverage
+Simple `docker-compose.yml` that uses the pre-built images.
+
+```yaml
+consul:
+  container_name: consul
+  image: kenjones/authstore-consul
+  command: "agent -config-file=/etc/consul.json"
+  ports:
+    - "8301"
+    - "8302"
+    - "8400"
+    - "8500"
+    - "8600"
+vault:
+  container_name: vault
+  image: kenjones/authstore-vault
+  cap_add:
+    - IPC_LOCK
+  ports:
+    - "8200"
 ```
