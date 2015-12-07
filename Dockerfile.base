@@ -1,6 +1,21 @@
 FROM alpine:3.2
 
+ENV CONSUL_VERSION 0.5.2
 ENV GOMAXPROCS 2
+ENV CHECKPOINT_DISABLE=1
+
+# ADD https://github.com/janeczku/go-dnsmasq/releases/download/0.9.8/go-dnsmasq_linux-amd64 /usr/sbin/go-dnsmasq
 
 COPY nsswitch.conf /etc/nsswitch.conf
 COPY repositories /etc/apk/repositories
+
+RUN apk --update add ca-certificates runit@testing consul@testing \
+    && rm -f /var/cache/apk/* \
+#    && chmod +x /usr/sbin/go-dnsmasq \
+    && mkdir /data \
+    && chown consul:consul /data
+
+COPY service /etc/service/
+
+CMD ["runsvdir", "/etc/service"]
+

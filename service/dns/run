@@ -1,0 +1,10 @@
+#!/bin/sh
+# if ! grep -q 'nameserver 127.0.0.1 # added by go-dnsmasq' /etc/resolv.conf
+# then
+#     echo "nameserver 127.0.0.1 # added by go-dnsmasq" >> /etc/resolv.conf
+# fi
+
+
+# exec go-dnsmasq --default-resolver --hostsfile=/etc/hosts ${DNSMASQ_ARGS}
+echo "go-dnsmasq currently disabled"
+
