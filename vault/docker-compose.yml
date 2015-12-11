@@ -3,5 +3,6 @@ vault:
   build: .
   cap_add:
     - IPC_LOCK
-  ports:
+  expose:
     - "8200"
+
