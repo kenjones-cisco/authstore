@@ -1,5 +1,8 @@
 ## Vault with Consul backend integration
 
+[![Build Status](https://travis-ci.org/kenjones-cisco/authstore.svg?branch=master)](https://travis-ci.org/kenjones-cisco/authstore)
+
+
 Creating an image for running Vault with integration with Consul. The base image `Dockerfile.base` starts with `alpine:3.2` and includes an additional alpine repository for installing vault and consul.
 
 Creating base image:
@@ -48,4 +51,5 @@ vault:
     - IPC_LOCK
   ports:
     - "8200"
+    - "8500"
 ```
