@@ -5,4 +5,5 @@ vault:
     - IPC_LOCK
   expose:
     - "8200"
+    - "8500"
 

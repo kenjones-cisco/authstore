@@ -2,7 +2,7 @@ FROM base-alpine:3.2
 
 ENV VAULT_VERSION 0.4.0
 
-EXPOSE 8200
+EXPOSE 8200 8500
 
 RUN apk --update add wget \
     && wget --quiet --output-document=/tmp/vault.zip https://releases.hashicorp.com/vault/${VAULT_VERSION}/vault_${VAULT_VERSION}_linux_amd64.zip \
