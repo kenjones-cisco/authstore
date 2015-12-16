@@ -5,6 +5,6 @@
   "acl_datacenter": "dc1",
   "retry_join": ["consul"],
   "addresses": {
-      "http": "0.0.0.0:8500"
+      "http": "0.0.0.0"
   }
 }
