@@ -3,5 +3,8 @@
   "leave_on_terminate": true,
   "datacenter": "dc1",
   "acl_datacenter": "dc1",
-  "retry_join": ["consul"]
+  "retry_join": ["consul"],
+  "addresses": {
+      "http": "0.0.0.0:8500"
+  }
 }
