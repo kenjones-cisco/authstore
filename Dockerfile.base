@@ -1,9 +1,8 @@
 FROM alpine:3.2
 
-ENV CONSUL_VERSION 0.6.0
+ENV CONSUL_VERSION 0.6.3
 ENV GOMAXPROCS 2
 ENV CHECKPOINT_DISABLE=1
-
 
 COPY nsswitch.conf /etc/nsswitch.conf
 COPY repositories /etc/apk/repositories
