@@ -1,6 +1,6 @@
-FROM base-alpine:3.2
+FROM base-alpine:3.3
 
-ENV VAULT_VERSION 0.4.1
+ENV VAULT_VERSION 0.5.0
 
 EXPOSE 8200 8500
 
@@ -15,4 +15,3 @@ RUN apk --update add wget \
 COPY service /etc/service/
 COPY vault.hcl /etc/vault.hcl
 COPY consul.json /etc/consul.json
-
