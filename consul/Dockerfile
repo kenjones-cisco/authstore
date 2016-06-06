@@ -1,4 +1,4 @@
-FROM base-alpine:3.3
+FROM base-alpine:3.4
 
 EXPOSE 8300 8301 8301/udp 8302 8302/udp 8400 8500 8600 8600/udp
 ENV DNS_RESOLVES consul

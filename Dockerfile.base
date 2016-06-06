@@ -1,21 +1,21 @@
-FROM alpine:3.3
+FROM alpine:3.4
 
-ENV CONSUL_VERSION 0.6.4
+RUN echo 'hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4' > /etc/nsswitch.conf \
+    && echo '@testing http://dl-4.alpinelinux.org/alpine/edge/testing' >> /etc/apk/repositories \
+    && mkdir /data \
+    && addgroup -S consul \
+    && adduser -h /var/consul -s /sbin/nologin -G consul -S -D consul \
+    && chown consul:consul /data
+
 ENV GOMAXPROCS 2
 ENV CHECKPOINT_DISABLE=1
-
-COPY nsswitch.conf /etc/nsswitch.conf
-COPY repositories /etc/apk/repositories
+ENV CONSUL_VERSION 0.6.4
 
 RUN apk --update add wget ca-certificates runit@testing \
     && wget --quiet --output-document=/tmp/consul.zip https://releases.hashicorp.com/consul/${CONSUL_VERSION}/consul_${CONSUL_VERSION}_linux_amd64.zip \
     && unzip /tmp/consul.zip -d /usr/sbin \
     && apk --purge del wget \
-    && rm -f /var/cache/apk/* /tmp/consul.zip \
-    && mkdir /data \
-    && addgroup -S consul \
-    && adduser -h /var/consul -s /sbin/nologin -G consul -S -D consul \
-    && chown consul:consul /data
+    && rm -f /var/cache/apk/* /tmp/consul.zip
 
 COPY service /etc/service/
 

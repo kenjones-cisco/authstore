@@ -1,4 +1,4 @@
-FROM base-alpine:3.3
+FROM base-alpine:3.4
 
 ENV VAULT_VERSION 0.5.3
 

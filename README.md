@@ -4,7 +4,7 @@
 [![Docker Repository on Quay - authstore-vault](https://quay.io/repository/kenjones_cisco/authstore-vault/status "Docker Repository on Quay - authstore-vault")](https://quay.io/repository/kenjones_cisco/authstore-vault)
 [![Docker Repository on Quay - authstore-consul](https://quay.io/repository/kenjones_cisco/authstore-consul/status "Docker Repository on Quay - authstore-consul")](https://quay.io/repository/kenjones_cisco/authstore-consul)
 
-Creating an image for running Vault with integration with Consul. The base image `Dockerfile.base` starts with `alpine:3.3` and includes an additional alpine repository for installing vault and consul.
+Creating an image for running Vault with integration with Consul. The base image `Dockerfile.base` starts with `alpine:3.4` and includes an additional alpine repository for installing vault and consul.
 
 Creating base image:
 ```bash
